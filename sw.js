@@ -1,4 +1,4 @@
-const CACHE_NAME = 'nastoechnaya-v4';
+const CACHE_NAME = 'nastoechnaya-v5';
 const urlsToCache = ['/', '/index.html', '/manifest.json', '/icons/icon-192.png', '/icons/icon-512.png', '/offline.html'];
 
 self.addEventListener('install', event => {
