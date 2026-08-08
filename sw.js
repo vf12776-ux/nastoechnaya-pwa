@@ -1,4 +1,4 @@
-const CACHE_NAME = 'nastoechnaya-v2';
+const CACHE_NAME = 'nastoechnaya-v3';
 const urlsToCache = ['/', '/index.html', '/manifest.json', '/icons/icon-192.png', '/icons/icon-512.png', '/offline.html'];
 
 // Немедленная активация нового SW
@@ -9,7 +9,7 @@ self.addEventListener('install', event => {
   );
 });
 
-// Берем контроль над всеми клиентами
+// Берем контроль над всеми клиентами и удаляем старые кэши
 self.addEventListener('activate', event => {
   event.waitUntil(
     caches.keys().then(cacheNames => 
