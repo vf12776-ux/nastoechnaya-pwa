@@ -1,34 +1,23 @@
-const CACHE_NAME = 'nastoechnaya-v3';
+const CACHE_NAME = 'nastoechnaya-v4';
 const urlsToCache = ['/', '/index.html', '/manifest.json', '/icons/icon-192.png', '/icons/icon-512.png', '/offline.html'];
 
-// Немедленная активация нового SW
 self.addEventListener('install', event => {
   self.skipWaiting();
-  event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => cache.addAll(urlsToCache))
-  );
+  event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(urlsToCache)));
 });
 
-// Берем контроль над всеми клиентами и удаляем старые кэши
 self.addEventListener('activate', event => {
   event.waitUntil(
     caches.keys().then(cacheNames => 
-      Promise.all(
-        cacheNames.map(cacheName => {
-          if (CACHE_NAME !== cacheName) {
-            return caches.delete(cacheName);
-          }
-        })
-      )
+      Promise.all(cacheNames.map(cacheName => {
+        if (CACHE_NAME !== cacheName) return caches.delete(cacheName);
+      }))
     ).then(() => self.clients.claim())
   );
 });
 
-// Слушаем сообщение для немедленной активации
 self.addEventListener('message', event => {
-  if (event.data === 'SKIP_WAITING') {
-    self.skipWaiting();
-  }
+  if (event.data === 'SKIP_WAITING') self.skipWaiting();
 });
 
 self.addEventListener('fetch', event => {
