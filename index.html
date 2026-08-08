@@ -25,120 +25,102 @@
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(135deg, rgba(128,128,128,0.1) 0%, transparent 50%, rgba(128,128,128,0.1) 100%);
+            background: radial-gradient(ellipse at center, rgba(139,0,0,0.08) 0%, transparent 70%);
             pointer-events: none;
         }
         .container {
             max-width: 400px;
             width: 100%;
-            background: #1a1a1a;
-            border-radius: 24px;
-            padding: 32px 24px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.8), 0 0 0 2px #696969, inset 0 1px 0 rgba(255,255,255,0.1);
+            background: linear-gradient(145deg, #1a1a1a 0%, #141414 100%);
+            border-radius: 28px;
+            padding: 40px 28px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.9), 0 0 0 1px #505050, 0 0 0 3px #2a2a2a, inset 0 1px 0 rgba(255,255,255,0.08);
             text-align: center;
             position: relative;
             z-index: 1;
         }
         .logo-container {
             position: relative;
-            width: 120px;
-            height: 120px;
-            margin: 0 auto 16px;
+            width: 140px;
+            height: 140px;
+            margin: 0 auto 20px;
             display: flex;
             align-items: center;
             justify-content: center;
         }
         .logo-bg {
             position: absolute;
-            font-size: 100px;
-            opacity: 0.3;
+            font-size: 110px;
+            opacity: 0.25;
             color: #808080;
             z-index: 0;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.5));
         }
-        .glass {
-            width: 60px;
-            height: 80px;
-            border: 3px solid #A0A0A0;
-            border-radius: 5px 5px 12px 12px;
+        .shot-glass {
             position: relative;
-            background: rgba(255, 255, 255, 0.05);
             z-index: 1;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.5), inset 0 1px 2px rgba(255,255,255,0.2);
-        }
-        .liquid {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 70%;
-            background: linear-gradient(180deg, #8B0000 0%, #660000 100%);
-            border-radius: 0 0 9px 9px;
-            box-shadow: inset 0 -2px 4px rgba(0,0,0,0.3);
-        }
-        .liquid::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: rgba(255, 255, 255, 0.3);
+            filter: drop-shadow(0 8px 16px rgba(0,0,0,0.6));
         }
         h1 { 
-            font-size: 28px; 
+            font-size: 32px; 
             font-weight: 800; 
-            margin-bottom: 8px; 
+            margin-bottom: 6px; 
             color: #ffffff;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+            letter-spacing: 1px;
         }
         .sub { 
             color: #ffffff; 
-            font-size: 14px; 
-            margin-bottom: 32px; 
-            font-weight: bold;
+            font-size: 16px; 
+            margin-bottom: 36px; 
+            font-weight: 700;
+            opacity: 0.9;
         }
         .install-buttons { 
             display: flex; 
             flex-direction: column; 
-            gap: 16px; 
-            margin-bottom: 32px; 
+            gap: 14px; 
+            margin-bottom: 36px; 
         }
         .install-btn {
             display: flex; 
             align-items: center; 
             justify-content: center; 
-            gap: 12px;
-            padding: 16px; 
+            gap: 10px;
+            padding: 16px 24px; 
             border: none; 
             border-radius: 50px;
-            font-size: 17px; 
+            font-size: 16px; 
             font-weight: 600; 
             cursor: pointer; 
-            transition: transform 0.1s;
-            background: linear-gradient(135deg, #808080 0%, #B0B0B0 25%, #A0A0A0 50%, #696969 75%, #808080 100%);
+            transition: all 0.2s ease;
+            background: linear-gradient(145deg, #909090 0%, #C0C0C0 20%, #A8A8A8 50%, #787878 80%, #909090 100%);
             color: #1a1a1a;
-            border: 2px solid #A0A0A0;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.5), inset 0 1px 2px rgba(255,255,255,0.4);
+            border: 1px solid #B0B0B0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4), inset 0 1px 3px rgba(255,255,255,0.5), inset 0 -1px 2px rgba(0,0,0,0.2);
         }
-        .install-btn:active { transform: scale(0.97); }
+        .install-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.5), inset 0 1px 3px rgba(255,255,255,0.5), inset 0 -1px 2px rgba(0,0,0,0.2);
+        }
+        .install-btn:active { transform: scale(0.98) translateY(0); }
         .nav-btn {
             display: block; 
-            padding: 16px; 
+            padding: 16px 20px; 
             margin-bottom: 12px; 
-            border-radius: 15px;
+            border-radius: 16px;
             text-decoration: none; 
             font-size: 16px; 
             font-weight: 600; 
-            transition: all 0.2s;
-            background: linear-gradient(135deg, #808080 0%, #B0B0B0 25%, #A0A0A0 50%, #696969 75%, #808080 100%);
+            transition: all 0.2s ease;
+            background: linear-gradient(145deg, #909090 0%, #C0C0C0 20%, #A8A8A8 50%, #787878 80%, #909090 100%);
             color: #1a1a1a;
-            border: 2px solid #A0A0A0;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.5), inset 0 1px 2px rgba(255,255,255,0.4);
+            border: 1px solid #B0B0B0;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.4), inset 0 1px 3px rgba(255,255,255,0.5), inset 0 -1px 2px rgba(0,0,0,0.2);
         }
         .nav-btn:hover { 
-            opacity: 0.9; 
             transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.6), inset 0 1px 2px rgba(255,255,255,0.4);
+            box-shadow: 0 5px 12px rgba(0,0,0,0.5), inset 0 1px 3px rgba(255,255,255,0.5), inset 0 -1px 2px rgba(0,0,0,0.2);
         }
         .nav-btn:active { transform: translateY(0); }
         .modal {
@@ -148,23 +130,23 @@
             left: 0; 
             width: 100%; 
             height: 100%;
-            background: rgba(0,0,0,0.9); 
-            backdrop-filter: blur(10px); 
+            background: rgba(0,0,0,0.92); 
+            backdrop-filter: blur(12px); 
             z-index: 200;
             justify-content: center; 
             align-items: center;
         }
         .modal.show { display: flex; }
         .modal-content {
-            background: #1a1a1a; 
-            border: 2px solid #696969; 
+            background: linear-gradient(145deg, #1a1a1a 0%, #141414 100%); 
+            border: 1px solid #505050; 
             border-radius: 24px;
             max-width: 320px; 
             width: 85%; 
             padding: 28px 24px; 
             text-align: center; 
             color: #f0f0f0;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.8);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.8);
         }
         .modal-content h3 { 
             margin-bottom: 20px; 
@@ -179,7 +161,7 @@
             text-align: left; 
         }
         .step-num {
-            background: linear-gradient(135deg, #808080 0%, #B0B0B0 50%, #696969 100%);
+            background: linear-gradient(145deg, #909090 0%, #C0C0C0 50%, #787878 100%);
             color: #1a1a1a; 
             width: 28px; 
             height: 28px; 
@@ -190,7 +172,7 @@
             flex-shrink: 0; 
             font-weight: bold;
             font-size: 14px;
-            border: 1px solid #A0A0A0;
+            border: 1px solid #B0B0B0;
         }
         .update-banner {
             position: fixed;
@@ -214,9 +196,50 @@
     <div class="container">
         <div class="logo-container">
             <div class="logo-bg">⚒️</div>
-            <div class="glass">
-                <div class="liquid"></div>
-            </div>
+            <svg class="shot-glass" width="90" height="110" viewBox="0 0 90 110">
+                <defs>
+                    <linearGradient id="liquidGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" style="stop-color:#FF1744"/>
+                        <stop offset="40%" style="stop-color:#D50000"/>
+                        <stop offset="100%" style="stop-color:#8B0000"/>
+                    </linearGradient>
+                    <linearGradient id="glassGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" style="stop-color:rgba(255,255,255,0.15)"/>
+                        <stop offset="30%" style="stop-color:rgba(255,255,255,0.05)"/>
+                        <stop offset="70%" style="stop-color:rgba(255,255,255,0.02)"/>
+                        <stop offset="100%" style="stop-color:rgba(255,255,255,0.12)"/>
+                    </linearGradient>
+                    <linearGradient id="shineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" style="stop-color:rgba(255,255,255,0)"/>
+                        <stop offset="50%" style="stop-color:rgba(255,255,255,0.4)"/>
+                        <stop offset="100%" style="stop-color:rgba(255,255,255,0)"/>
+                    </linearGradient>
+                </defs>
+                
+                <!-- Тень под стопкой -->
+                <ellipse cx="45" cy="105" rx="28" ry="4" fill="rgba(0,0,0,0.3)"/>
+                
+                <!-- Стеклянная часть стопки (трапеция) -->
+                <path d="M22 8 L68 8 L62 100 L28 100 Z" fill="url(#glassGradient)" stroke="#A0A0A0" stroke-width="1.5"/>
+                
+                <!-- Жидкость (насыщенная красно-бордовая) -->
+                <path d="M24 35 L66 35 L62 98 L28 98 Z" fill="url(#liquidGradient)"/>
+                
+                <!-- Поверхность жидкости (блик) -->
+                <ellipse cx="45" cy="35" rx="21" ry="3" fill="rgba(255,100,100,0.6)"/>
+                
+                <!-- Блик на стекле слева -->
+                <path d="M26 12 L32 12 L29 96 L25 96 Z" fill="url(#shineGradient)" opacity="0.6"/>
+                
+                <!-- Блик на стекле справа -->
+                <path d="M60 12 L64 12 L61 96 L58 96 Z" fill="rgba(255,255,255,0.15)"/>
+                
+                <!-- Верхний ободок стопки -->
+                <ellipse cx="45" cy="8" rx="23" ry="3" fill="none" stroke="#C0C0C0" stroke-width="1.5"/>
+                
+                <!-- Дно стопки -->
+                <ellipse cx="45" cy="100" rx="17" ry="2.5" fill="rgba(255,255,255,0.1)" stroke="#909090" stroke-width="1"/>
+            </svg>
         </div>
         <h1>Настоишная</h1>
         <div class="sub">на Кузне</div>
@@ -310,12 +333,10 @@
         // Логика обновления PWA без переустановки
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('sw.js').then(registration => {
-                // Проверяем обновление каждые 60 секунд
                 setInterval(() => {
                     registration.update();
                 }, 60000);
 
-                // Слушаем установку нового SW
                 registration.addEventListener('updatefound', () => {
                     newWorker = registration.installing;
                     newWorker.addEventListener('statechange', () => {
