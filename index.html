@@ -307,7 +307,7 @@ document.getElementById('openChromeBtn').addEventListener('click', () => {
     const url = window.location.href;
     const cleanUrl = url.replace(/^https?:\/\//, '');
     // scheme=https + package=com.android.chrome = открыть именно эту ссылку именно в Хроме
-    window.location.href = 'intent://' + cleanUrl + '#Intent;scheme=https;package=com.android.chrome;end';
+    window.location.href = 'intent://' + cleanUrl + '#Intent;scheme=googlechrome;end';
 });
     
 
