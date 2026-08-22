@@ -305,16 +305,8 @@
         // Кнопка "Открыть в Chrome" через Android intent
 document.getElementById('openChromeBtn').addEventListener('click', () => {
     const url = window.location.href;
-    
-    // Пробуем открыть через Chrome-specific URL
-    const chromeUrl = 'googlechrome://navigate?url=' + encodeURIComponent(url);
-    
-    window.location.href = chromeUrl;
-    
-    // Если через 500ms страница не ушла в Chrome — показываем fallback
-    setTimeout(() => {
-        alert('Если Chrome не открылся, скопируйте ссылку и откройте вручную:\n\n' + url);
-    }, 500);
+    const cleanUrl = url.replace(/^https?:\/\//, '');
+    window.location.href = 'intent://' + cleanUrl + '#Intent;scheme=googlechrome;end';
 });
     
 
