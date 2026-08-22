@@ -303,7 +303,21 @@
             });
         });
         // Кнопка "Открыть в Chrome" через Android intent
-           // Кнопка "Открыть в Chrome" через Android intent document.getElementById('openChromeBtn').addEventListener('click', () => { const url = window.location.href; const cleanUrl = url.replace(/^https?:\/\//, ''); // Явно указываем пакет Chrome, чтобы не открылся браузер по умолчанию window.location.href = 'intent://' + cleanUrl + '#Intent;scheme=https;package=com.android.chrome;end'; });
+document.getElementById('openChromeBtn').addEventListener('click', () => {
+    const url = window.location.href;
+    
+    // Пробуем открыть через Chrome-specific URL
+    const chromeUrl = 'googlechrome://navigate?url=' + encodeURIComponent(url);
+    
+    window.location.href = chromeUrl;
+    
+    // Если через 500ms страница не ушла в Chrome — показываем fallback
+    setTimeout(() => {
+        alert('Если Chrome не открылся, скопируйте ссылку и откройте вручную:\n\n' + url);
+    }, 500);
+});
+    
+
 
         window.addEventListener('beforeinstallprompt', (e) => { 
             e.preventDefault(); 
