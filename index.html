@@ -303,11 +303,7 @@
             });
         });
         // Кнопка "Открыть в Chrome" через Android intent
-document.getElementById('openChromeBtn').addEventListener('click', () => {
-    const url = window.location.href;
-    const cleanUrl = url.replace(/^https?:\/\//, '');
-    window.location.href = 'intent://' + cleanUrl + '#Intent;scheme=googlechrome;end';
-});
+           // Кнопка "Открыть в Chrome" через Android intent document.getElementById('openChromeBtn').addEventListener('click', () => { const url = window.location.href; const cleanUrl = url.replace(/^https?:\/\//, ''); // Явно указываем пакет Chrome, чтобы не открылся браузер по умолчанию window.location.href = 'intent://' + cleanUrl + '#Intent;scheme=https;package=com.android.chrome;end'; });
 
         window.addEventListener('beforeinstallprompt', (e) => { 
             e.preventDefault(); 
