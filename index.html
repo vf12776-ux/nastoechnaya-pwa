@@ -214,10 +214,11 @@
 
         <!-- Баннер для браузеров, отличных от Chrome -->
         <div class="chrome-hint" id="chromeHint" style="display:none;">
-            <div class="hint-title">🔵 Вы не в Chrome</div>
-            <p>При сканировании QR — скопируйте ссылку и откройте её в <strong>Chrome</strong>. Там приложение установится правильно.</p>
-            <button class="copy-btn" id="copyLinkBtn">📋 Скопировать ссылку</button>
-        </div>
+    <div class="hint-title">🔵 Вы не в Chrome</div>
+    <p>При сканировании QR — скопируйте ссылку и откройте её в <strong>Chrome</strong>. Там приложение установится правильно.</p>
+    <button class="copy-btn" id="openChromeBtn" style="margin-bottom:10px;">🌐 Открыть в Chrome</button>
+    <button class="copy-btn" id="copyLinkBtn">📋 Скопировать ссылку</button>
+</div>
 
         <div class="install-buttons" id="installButtons">
             <button class="install-btn" id="installBtnAndroid">📱 Установить на Android</button>
@@ -301,6 +302,12 @@
                 setTimeout(() => { copyLinkBtn.textContent = '📋 Скопировать ссылку'; }, 2000);
             });
         });
+        // Кнопка "Открыть в Chrome" через Android intent
+document.getElementById('openChromeBtn').addEventListener('click', () => {
+    const url = window.location.href;
+    const cleanUrl = url.replace(/^https?:\/\//, '');
+    window.location.href = 'intent://' + cleanUrl + '#Intent;scheme=googlechrome;end';
+});
 
         window.addEventListener('beforeinstallprompt', (e) => { 
             e.preventDefault(); 
