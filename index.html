@@ -252,16 +252,7 @@
         </div>
     </div>
 
-    <!-- Модалка для Android (Chrome) -->
-    <div class="modal" id="androidModal">
-        <div class="modal-content">
-            <h3>🤖 Установить на Android</h3>
-            <div class="step"><span class="step-num">1</span><span>Нажмите ⋮ в правом верхнем углу</span></div>
-            <div class="step"><span class="step-num">2</span><span>Выберите «Установить приложение»</span></div>
-            <div class="step"><span class="step-num">3</span><span>Подтвердите установку</span></div>
-            <button class="install-btn" style="margin-top: 16px;" onclick="document.getElementById('androidModal').classList.remove('show')">Закрыть</button>
-        </div>
-    </div>
+    
 
     <script>
         let deferredPrompt = null;
@@ -313,7 +304,6 @@ document.getElementById('openChromeBtn').addEventListener('click', () => {
 
 
         window.addEventListener('beforeinstallprompt', (e) => { 
-            e.preventDefault(); 
             deferredPrompt = e; 
         });
 
@@ -326,8 +316,6 @@ document.getElementById('openChromeBtn').addEventListener('click', () => {
                     localStorage.setItem('pwa-installed', 'true'); 
                 }
                 deferredPrompt = null;
-            } else { 
-                androidModal.classList.add('show'); 
             }
         });
 
